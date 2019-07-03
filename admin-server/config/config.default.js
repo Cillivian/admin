@@ -24,13 +24,24 @@ module.exports = appInfo => {
             port: 3306,
             database: 'admin',
             username: 'root',
-            password: '100248'
+            password: '12345678lsq'
         }
         // add your user config here
     const userConfig = {
         // myAppName: 'egg',
     };
+    config.security = {
+        csrf: {
+            enable: false,
+        },
+        domainWhiteList: ['http://localhost:8080'],
+    };
 
+    config.cors = {
+        origin: 'http://localhost:8080',
+        credentials: true,
+        allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
+    };
     return {
         ...config,
         ...userConfig,
