@@ -53,6 +53,28 @@ class UserController extends Controller {
         await user.destroy();
         ctx.status = 200;
     }
+
+    async checkById() {
+        const ctx = this.ctx;
+        const id = ctx.params.id;
+        const password = ctx.params.password;
+        const user = await ctx.model.User.findByPk(id);
+        if (!user) {
+            ctx.status = 404;
+            ctx.message = "用户不存在";
+            ctx.body = "null";
+            return
+        } else if (user.password != password) {
+            ctx.status = 200;
+            ctx.message = "密码错误";
+            ctx.body = "password error";
+        } else {
+            ctx.status = 200;
+            ctx.message = "登陆成功";
+            ctx.body = user;
+        }
+
+    }
 }
 
 module.exports = UserController;

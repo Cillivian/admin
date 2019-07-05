@@ -3,12 +3,27 @@
 module.exports = app => {
     const { STRING, INTEGER, DATE } = app.Sequelize;
 
+    var d = new Date();
     const User = app.model.define('user', {
         id: { type: INTEGER, primaryKey: true, autoIncrement: true },
-        name: STRING(30),
+        user_name: STRING(30),
+        nick_name: STRING(30),
+        password: STRING(30),
         age: INTEGER,
-        created_at: DATE,
-        updated_at: DATE,
+        phone: STRING(30),
+        email: STRING(30),
+        ip: STRING(30),
+        created_at: {
+            type: DATE(6),
+            default: d.getTime(),
+        },
+        updated_at: {
+            type: DATE(6),
+            default: d.getTime(),
+        },
+    }, {
+        //取消create和update时间
+        timestamps: false,
     });
 
     return User;
