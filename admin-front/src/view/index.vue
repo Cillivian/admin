@@ -94,7 +94,10 @@ export default{
     name:'index',
         data(){
             return {
-                from:{},
+                // from:{
+                //   username:'',
+                //   password:'',
+                // },
                 path:require('../assets/materials/video2.mp4'),
             }
 
@@ -104,20 +107,25 @@ export default{
       e.preventDefault();
       this.form.validateFields((err, values) => {
         if (!err) {
-        //   console.log('Received values of form: ', values);
-        var that =this;
+          console.log(values.username+'.....'+values.password);
+        
         this.$api({
-             type: 'json',
-            url:'/user',
-            method:'get',
-            // params:{
-            //     username:that.form.username,
-            //     userpass:that.form.password,
-            // }
+            type: 'json',
+            url:'/api/login',
+            method:'post',
+            data:{
+                user_name:values.username,
+                password:values.password,
+            }
         }).then(res=>{
-            console.log(res);
+          console.log(res);
+          if(res.data.ok){
+            this.$message.success("登陆成功！");
+          }else{
+            this.$message.warning("密码错误！");
+          }
         }).catch(res=>{
-            console.log(res);
+          this.$message.error("登陆失败");
         })
         }
       });
