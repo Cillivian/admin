@@ -9,7 +9,7 @@ module.exports = app => {
 
 <<<<<<< HEAD
     var d = new Date();
-    const User = app.model.define('user', {
+    const User = app.model.define('users', {
         id: { type: INTEGER, primaryKey: true, autoIncrement: true },
         user_name: STRING(30),
         nick_name: STRING(30),
@@ -27,8 +27,11 @@ module.exports = app => {
             default: d.getTime(),
         },
     }, {
+        freezeTableName: true, // 使用数据库里的真实表名
+        underscored: false, // 不使用下划线
         //取消create和update时间
         timestamps: false,
+
     });
 =======
   const User = app.model.define('user', {
