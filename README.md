@@ -66,7 +66,7 @@ config.sequelize = {
     port: 3306,
     database: 'admin',
     username: 'root',
-    password: '100248',
+    password: '**********',
 };
 ```
 然后新建文件夹model，新建app/model/user.js文件
