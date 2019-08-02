@@ -6,8 +6,6 @@ module.exports = app => {
     INTEGER,
     DATE,
   } = app.Sequelize;
-
-<<<<<<< HEAD
     var d = new Date();
     const User = app.model.define('users', {
         id: { type: INTEGER, primaryKey: true, autoIncrement: true },
@@ -33,19 +31,6 @@ module.exports = app => {
         timestamps: false,
 
     });
-=======
-  const User = app.model.define('user', {
-    id: {
-      type: INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    name: STRING(30),
-    age: INTEGER,
-    created_at: DATE,
-    updated_at: DATE,
-  });
->>>>>>> 5ced66e736976f7c73a463bcdaecbda3c47dad91
 
   return User;
 };

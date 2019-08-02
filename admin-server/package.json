@@ -39,7 +39,13 @@
         "cov": "egg-bin cov",
         "lint": "eslint .",
         "ci": "npm run lint && npm run cov",
-        "autod": "autod"
+        "autod": "autod",
+        "sequelize": "sequelize --",
+        "sequelize:reset": "sequelize db:migrate:undo:all && sequelize db:migrate && sequelize db:seed:all",
+        "sequelize:migrate:do": "sequelize db:migrate",
+        "sequelize:migrate:undo": "sequelize db:migrate:undo:all",
+        "sequelize:seed:do": "sequelize db:seed:all",
+        "sequelize:seed:undo": "sequelize db:seed:undo:all"
     },
     "ci": {
         "version": "10"
