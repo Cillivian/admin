@@ -2,17 +2,21 @@
 
 /** @type Egg.EggPlugin */
 module.exports = {
-    // had enabled by egg
-    // static: {
-    //   enable: true,
-    // }
-    sequelize: {
-        enable: true,
-        package: 'egg-sequelize',
-    },
+  // had enabled by egg
+  // static: {
+  //   enable: true,
+  // }
+  sequelize: {
+    enable: true,
+    package: 'egg-sequelize',
+  },
 
-    cors: {
-        enable: true,
-        package: 'egg-cors',
-    },
+  cors: {
+    enable: true,
+    package: 'egg-cors',
+  },
+  passport: {
+    enable: true,
+    package: 'egg-passport',
+  },
 };
